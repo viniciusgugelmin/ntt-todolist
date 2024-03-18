@@ -1,1 +1,11 @@
-<app-table [data]="data" [columns]="columns"></app-table>
+<div *ngIf="(isLoading$ | async) else content">
+  Carregando itens...
+</div>
+<ng-template #content>
+  <div *ngIf="(error$ | async)">
+    Ocorreu um erro ao carregar os itens.
+  </div>
+  <div *ngIf="(items$ | async) as items">
+    <app-table [data]="items" [columns]="columns"></app-table>
+  </div>
+</ng-template>
