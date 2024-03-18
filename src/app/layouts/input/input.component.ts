@@ -16,6 +16,7 @@ export class InputComponent {
   @Input() value: string = '';
   @Input() disabled: boolean = false;
   @Input() required: boolean = false;
+
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 
   onInputChange(event: any) {
