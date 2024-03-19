@@ -1,12 +1,25 @@
-<table>
-  <thead>
-  <tr>
-    <th *ngFor="let column of columns">{{ column }}</th>
+<table class="ntt-table">
+  <thead class="ntt-table__header">
+  <tr class="ntt-table__row">
+    <th
+      *ngFor="let column of columns"
+    >
+      {{ column.display }}
+    </th>
   </tr>
   </thead>
-  <tbody>
-  <tr *ngFor="let item of data">
-    <td *ngFor="let column of columns">{{ item[column] }}</td>
+  <tbody class="ntt-table__body">
+  <tr
+    class="ntt-table__row"
+    *ngFor="let item of data"
+  >
+    <td
+      class="ntt-table__cell"
+      [attr.data-column]="column.display"
+      *ngFor="let column of columns"
+    >
+      {{ column.convert ? column.convert(item[column.key]) : item[column.key] }}
+    </td>
   </tr>
   </tbody>
 </table>

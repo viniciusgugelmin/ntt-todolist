@@ -12,7 +12,7 @@ import {NgForOf} from "@angular/common";
 })
 export class TableComponent {
   @Input() data: any[] = [];
-  @Input() columns: string[] = [];
+  @Input() columns: TableColumn[] = [];
 
   constructor() { }
 }

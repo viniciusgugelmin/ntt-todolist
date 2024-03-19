@@ -1,0 +1,7 @@
+.ntt-items-list {
+  @apply flex items-center justify-center w-full pt-2;
+
+  &__table {
+    @apply w-full;
+  }
+}

@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
+  header = {
+    title: "NTT Data",
+    logo: "assets/images/logo.png"
+  }
 }

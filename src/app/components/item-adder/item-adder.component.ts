@@ -4,6 +4,7 @@ import {ButtonComponent} from "../../layouts/button/button.component";
 import {Store} from "@ngrx/store";
 import {IItemsReducer} from "../../store/reducers/items.reducer";
 import * as ItemsActions from "../../store/actions/items.actions";
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-item-adder',
@@ -24,7 +25,7 @@ export class ItemAdderComponent {
 
   onAdd() {
     const item = {
-      id: Math.random(),
+      id: uuid(),
       title: this.itemTitle,
       completed: false,
       createdAt: new Date()

@@ -23,7 +23,12 @@ export class ItemsListComponent implements OnInit {
   isLoading$: Observable<boolean> = new Observable<boolean>();
   error$: Observable<boolean> = new Observable<boolean>();
 
-  columns = ['id', 'title', 'completed', 'createdAt'];
+  columns: TableColumn[] = [
+    {key: 'id', display: 'ID'},
+    {key: 'title', display: 'Title'},
+    {key: 'completed', display: 'Completed', convert: (value: boolean) => value ? '✅' : '❌'},
+    {key: 'createdAt', display: 'Created At', convert: (value: string) => new Date(value).toLocaleString()}
+  ];
 
   constructor(private store: Store<IItemsReducer>) {
   }

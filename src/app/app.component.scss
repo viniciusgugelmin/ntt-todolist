@@ -1,3 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.ntt-content {
+  // min of pt-24 to account for the header
+  @apply w-full bg-white grow pt-32 pb-8 px-4;
+}
