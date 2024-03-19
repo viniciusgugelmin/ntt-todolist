@@ -19,7 +19,7 @@ import * as ItemsActions from "../../store/actions/items.actions";
   styleUrl: './items-list.component.scss'
 })
 export class ItemsListComponent implements OnInit {
-  items$: Observable<Item[]>  = new Observable<Item[]>();
+  items$: Observable<Item[]> = new Observable<Item[]>();
   isLoading$: Observable<boolean> = new Observable<boolean>();
   error$: Observable<boolean> = new Observable<boolean>();
 
@@ -39,5 +39,9 @@ export class ItemsListComponent implements OnInit {
     this.items$ = this.store.select(ItemsSelectors.selectAllItems);
     this.isLoading$ = this.store.select(ItemsSelectors.selectItemLoading);
     this.error$ = this.store.select(ItemsSelectors.selectItemError);
+  }
+
+  check({item}: { item: Item }): void {
+    this.store.dispatch(ItemsActions.updateItem({ id: item.id, changes: { completed: !item.completed } }));
   }
 }

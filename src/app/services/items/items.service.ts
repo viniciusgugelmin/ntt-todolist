@@ -34,4 +34,16 @@ export class ItemsService {
 
     return from(this.getItemsFromLocalStorage());
   }
+
+  put(id: Item['id'], changes: Partial<Item>) {
+    this.getItemsFromLocalStorage().then(items => {
+      const item = items.find(item => item.id === id);
+      if (item) {
+        Object.assign(item, changes);
+        localStorage.setItem('items', JSON.stringify(items));
+      }
+    });
+
+    return from(this.getItemsFromLocalStorage());
+  }
 }

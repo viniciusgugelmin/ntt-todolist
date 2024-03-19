@@ -13,6 +13,7 @@
       <app-table
         [data]="items"
         [columns]="columns"
+        (callAction)="check($event)"
       />
     </div>
   </ng-template>

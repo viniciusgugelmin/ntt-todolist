@@ -12,6 +12,7 @@
   <tr
     class="ntt-table__row"
     *ngFor="let item of data"
+    (click)="onClick(item)"
   >
     <td
       class="ntt-table__cell"

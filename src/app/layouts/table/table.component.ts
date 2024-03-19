@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgForOf} from "@angular/common";
 
 @Component({
@@ -14,5 +14,11 @@ export class TableComponent {
   @Input() data: any[] = [];
   @Input() columns: TableColumn[] = [];
 
+  @Output() callAction: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
+
+  onClick(item: any) {
+    this.callAction.emit({ item });
+  }
 }
