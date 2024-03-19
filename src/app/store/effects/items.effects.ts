@@ -4,7 +4,6 @@ import {catchError, map, of} from 'rxjs';
 import {mergeMap} from 'rxjs/operators';
 import {ItemsService} from '../../services/items/items.service';
 import * as ItemsActions from '../actions/items.actions';
-import {updateItem} from "../actions/items.actions";
 
 @Injectable()
 export class ItemsEffects {

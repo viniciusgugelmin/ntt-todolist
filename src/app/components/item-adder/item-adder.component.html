@@ -1,12 +1,18 @@
-<app-input
-  id="item-adder-input"
-  name="item-adder-input"
-  type="text"
-  placeholder="TODO"
-  [value]="itemTitle"
-  [required]="true"
-  (onChange)="onChange($event)"
-/>
-<app-button id="item-adder-button" (onClick)="onAdd()">
-  Add
-</app-button>
+<div class="ntt-item-adder">
+  <app-input
+    id="ntt-item-adder__input"
+    class="ntt-item-adder__input"
+    name="todo-item"
+    type="text"
+    placeholder="TODO"
+    label="TODO"
+    [bordered]="true"
+    [value]="itemTitle"
+    [required]="true"
+    (onChange)="onChange($event)"
+  />
+  <app-button id="item-adder-button" (onClick)="onAdd()" [disabled]="!itemTitle || (isLoading$ | async) || (error$ | async)">
+    Add
+  </app-button>
+
+</div>

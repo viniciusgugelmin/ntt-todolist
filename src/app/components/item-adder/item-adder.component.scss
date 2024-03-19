@@ -1,0 +1,7 @@
+.ntt-item-adder {
+  @apply flex items-center justify-center gap-4 mb-2;
+
+  &__input {
+    @apply max-w-56 min-w-56;
+  }
+}

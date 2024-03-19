@@ -1,6 +1,11 @@
-<label [for]="id">
-  {{ label }}
+<div class="ntt-input" [attr.data-name]="name">
   <input
+    [class]="'ntt-input ntt-input__text' + (otherClass ? ' ' + otherClass : '')"
+    (focusin)="onFocusIn($event)"
+    (focusout)="onFocusOut($event)"
+    autocomplete="off"
+    [class.ntt-input--bordered]="bordered"
+    [class.ntt-input--disabled]="disabled"
     [id]="id"
     [name]="name"
     [type]="type"
@@ -10,4 +15,11 @@
     [required]="required"
     (input)="onInputChange($event)"
   />
-</label>
+  <label
+    class="ntt-label ntt-label--text"
+    [class.ntt-label--floating]="isFocused || value"
+    [for]="id"
+  >
+    {{ label }}
+  </label>
+</div>

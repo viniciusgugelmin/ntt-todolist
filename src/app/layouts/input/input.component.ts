@@ -14,13 +14,25 @@ export class InputComponent {
   @Input() label: string = '';
   @Input() placeholder: string = '';
   @Input() value: string = '';
+  @Input() bordered: boolean = true;
   @Input() disabled: boolean = false;
   @Input() required: boolean = false;
+  @Input() otherClass: string = '';
+
+  isFocused: boolean = false;
 
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 
   onInputChange(event: any) {
     this.value = event.target.value;
     this.onChange.emit(this.value);
+  }
+
+  onFocusIn(event: any) {
+    this.isFocused = true;
+  }
+
+  onFocusOut(event: any) {
+    this.isFocused = false;
   }
 }
